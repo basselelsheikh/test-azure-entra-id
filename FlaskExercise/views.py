@@ -97,5 +97,6 @@ def _build_auth_url(msal_app: ConfidentialClientApplication,  state=None):
     # TODO: Get the authorization request URL from a built msal app, and return it
     return msal_app.get_authorization_request_url(
         Config.SCOPE,
-        redirect_uri="test-entra-id-app.azurewebsites.net"+ Config.REDIRECT_PATH
+        redirect_uri="https://test-entra-id-app.azurewebsites.net"+ Config.REDIRECT_PATH,
+        state=state
     )
