@@ -56,7 +56,8 @@ def authorized():
         code = request.args.get("code")
         result = msal_app.acquire_token_by_authorization_code(
             code,
-            scopes=Config.SCOPE
+            scopes=Config.SCOPE,
+            redirect_uri="https://test-entra-id-app.azurewebsites.net"+ Config.REDIRECT_PATH
         )
         if 'error' in result:
             return render_template('auth_error.html', result=result)
